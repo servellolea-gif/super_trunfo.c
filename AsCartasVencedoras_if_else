@@ -1,0 +1,158 @@
+#include <stdio.h>
+
+int main (){
+    char estado[50];
+    char codigo[50];
+    char cidade[50];
+    int populacao, pontosturisticos;
+    double area, pib, densidadepopulacional, pibpercapita;
+    double SuperPoder;
+
+    char estado2[50];
+    char codigo2[50];
+    char cidade2[50];
+    int populacao2, pontosturisticos2;
+    double area2, pib2, densidadepopulacional2, pibpercapita2;
+    double SuperPoder2;
+
+    /*Importante colocar o número no nome das variáveis para que o código reconheça a diferença de uma carta para a outra na hora de imprimir no terminal*/
+
+    printf("Vamos começar pela carta 1:\n");
+
+    printf("Digite o nome do estado:\n");
+    scanf("%s",estado);
+
+    printf("Digite o código da carta (será a sigla do estado mais um número de 01 à 04):\n");
+    scanf("%s",codigo);
+
+    printf("Digite o nome da cidade:\n");
+    scanf("%s",cidade);
+
+    printf("Qual o número de habitantes desta cidade?\n");
+    scanf("%d",&populacao);
+
+    printf("Qual a área da cidade em km²?\n");
+    scanf("%lf",&area);
+
+    printf("Qual o PIB em bilhões de reais?\n");
+    scanf("%lf",&pib);
+
+    printf("Está cidade possui quantos pontos turisticos?\n");
+    scanf("%d",&pontosturisticos);
+
+    densidadepopulacional = (double)populacao / area;
+    pibpercapita = pib * 1000000000.0 / (double)populacao; // Convertendo PIB de bilhões para reais
+
+    printf("Carta 1:\n");
+    printf("Estado:%s\n", estado);
+    printf("Código:%s\n", codigo);
+    printf("Nome da cidade:%s\n", cidade);
+    printf("População:%d\n", populacao);
+    printf("Área:%.2f km²\n", area);
+    printf("PIB:%.2f bilhões de reais\n", pib);
+    printf("Número de Pontos Turisticos:%d\n", pontosturisticos);
+    printf("Densidade Populacional: %.2f habitantes por km²\n", densidadepopulacional);
+    printf("PIB per capita: %.2f reais\n", pibpercapita);  
+
+
+    printf("Vamos para a carta 2:\n");
+
+    printf("Digite o nome do estado:\n");
+    scanf("%s",estado2);
+
+    printf("Digite o código da carta (será a sigla do estado mais um número de 01 à 04):\n");
+    scanf("%s",codigo2);
+
+    printf("Digite o nome da cidade:\n");
+    scanf("%s",cidade2);
+
+    printf("Qual o número de habitantes desta cidade?\n");
+    scanf("%d",&populacao2);
+
+    printf("Qual a área da cidade em km²?\n");
+    scanf("%lf",&area2);
+
+    printf("Qual o PIB em bilhões de reais?\n");
+    scanf("%lf",&pib2);
+
+    printf("Está cidade possui quantos pontos turisticos?\n");
+    scanf("%d",&pontosturisticos2);
+
+    densidadepopulacional2 = (double)populacao2 / area2;
+    pibpercapita2 = pib2 * 1000000000.0 / (double)populacao2; // Convertendo PIB de bilhões para reais
+
+    printf("Carta 2:\n");
+    printf("Estado:%s\n", estado2);
+    printf("Código:%s\n", codigo2);
+    printf("Nome da cidade:%s\n", cidade2);
+    printf("População:%d\n", populacao2);
+    printf("Área:%.2f km²\n", area2);
+    printf("PIB:%.2f bilhões de reais\n", pib2);
+    printf("Número de Pontos Turisticos:%d\n", pontosturisticos2);
+    printf("Densidade Populacional: %.2f habitantes por km²\n", densidadepopulacional2);
+    printf("PIB per capita: %.2f reais\n", pibpercapita2);
+
+    /*O código se repete nas duas cartas, por isso, é importante lembrar que existem diferenças na nomenclatura para que as informações sejam impressas corretamente no terminal*/
+    
+    /*Comparação de variáveis*/
+        // Começamos calculando o SuperPoder de cada carta, somando todos os atributos numéricos
+    SuperPoder = (double)populacao + area + pib + (double)pontosturisticos + pibpercapita + densidadepopulacional;
+    SuperPoder2 = (double)populacao2 + area2 + pib2 + (double)pontosturisticos2 + pibpercapita2 + densidadepopulacional2;
+        // Como todas as variáveis do SuperPoder são de unidades diferentes (habitantes, km², bilhões de reais, etc.), o valor do SuperPoder em si não tem uma interpretação direta, mas serve como uma métrica composta para comparar as cartas entre si.
+        // Imprimimos os SuperPoderes calculados
+    printf("O Super Poder da carta 1 é: %.2f\n", SuperPoder);
+    printf("O Super Poder da carta 2 é: %.2f\n", SuperPoder2);
+
+    // Agora comparamos os SuperPoderes e os demais atributos para determinar o vencedor
+    printf(" A população da carta 1 é maior do que a população da carta 2?\n");
+    if ( populacao > populacao2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" A área da carta 1 é maior do que a área da carta 2?\n");
+    if ( area > area2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" O PIB da carta 1 é maior do que o PIB da carta 2?\n");
+    if ( pib > pib2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" O número de pontos turísticos da carta 1 é maior do que o número de pontos turísticos da carta 2?\n");
+    if ( pontosturisticos > pontosturisticos2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" O inverso da densidade populacional da carta 1 é menor do que a da carta 2?\n");
+    if ( (1/densidadepopulacional) > (1/densidadepopulacional2) ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" O PIB per capita da carta 1 é maior do que o PIB per capita da carta 2?\n");
+    if ( pibpercapita > pibpercapita2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+    printf(" O Super Poder da carta 1 é maior do que o super poder da carta 2?\n");
+    if ( SuperPoder > SuperPoder2 ) {
+        printf(" A carta 1 é a vencedora!\n");
+    } else {
+        printf("A carta 2 é a vencedora!\n");
+    }
+
+
+return 0;
+}
